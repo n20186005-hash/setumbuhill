@@ -166,12 +166,16 @@ export default function Home() {
     const attraction: Record<string, unknown> = {
       "@context": "https://schema.org",
       "@type": "TouristAttraction",
+      "@id": "https://setumbuhill.com/#attraction",
       name: "Punthuk Setumbu",
       description: language === "id" ? "Titik pandang matahari terbit di Perbukitan Menoreh dekat Borobudur." : "A sunrise viewpoint in the Menoreh Hills near Borobudur.",
+      url: "https://setumbuhill.com/",
+      image: "https://setumbuhill.com/images/punthuk-setumbu-mountains.jpg",
       address: { "@type": "PostalAddress", addressLocality: "Borobudur", addressRegion: "Central Java", addressCountry: "ID" },
       geo: { "@type": "GeoCoordinates", latitude: -7.608743098093699, longitude: 110.17662085684644 },
       openingHours: "Mo-Su 04:00-17:00",
       priceRange: "IDR 20,000 approx.",
+      isAccessibleForFree: false,
     };
     const url = siteUrl("/");
     if (url) attraction.url = url;
@@ -181,7 +185,19 @@ export default function Home() {
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title = language === "id" ? "Punthuk Setumbu — Panduan Pagi" : "Punthuk Setumbu — Morning Field Guide";
+    document.title = language === "id"
+      ? "Punthuk Setumbu Magelang — Panduan Wisata: Titik Pandang Matahari Terbit & Borobudur"
+      : "Punthuk Setumbu Magelang Travel Guide: Sunrise Viewpoint & Borobudur";
+    const description = language === "id"
+      ? "Panduan lengkap Punthuk Setumbu: bukit pandang matahari terbit di Menoreh dekat Borobudur. Cek harga tiket (±Rp20.000), jam buka (04.00–17.00 WIB), rute dari Borobudur, dan kedai kopi terdekat."
+      : "Plan your sunrise at Punthuk Setumbu Hill, a Menoreh viewpoint above Borobudur. Ticket price (~IDR 20,000), hours (04:00–17:00 WIB), directions from Borobudur, and nearby cafés.";
+    let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "description";
+      document.head.appendChild(meta);
+    }
+    meta.content = description;
     localStorage.setItem("punthuk-language", language);
   }, [language]);
 
