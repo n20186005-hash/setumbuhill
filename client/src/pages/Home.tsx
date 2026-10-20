@@ -55,8 +55,8 @@ const content = {
     planTitle: "Urutan pagi yang sederhana", plan: "Konfirmasi pintu masuk dan waktu akses, periksa cuaca, atur transportasi pulang, lalu berjalan sesuai kondisi. Rencana ke Candi Borobudur memerlukan aturan dan tiket terpisah.",
     nearby: [
       ["Candi Borobudur", "Warisan budaya yang terlihat dari kejauhan saat kondisi cerah. Periksa aturan kunjungan dan tiket secara terpisah; pengalaman di bukit pandang ini bukan tiket masuk ke kompleks candi."],
-      ["Bukit Rhema", "Tujuan lanjutan di perbukitan Menoreh. Jalur penghubung dapat memiliki kemiringan dan permukaan licin; sesuaikan dengan kondisi fisik serta cuaca."],
-      ["Bukit Barede", "Titik pandang lain di sekitar Punthuk Setumbu untuk memperpanjang penjelajahan lanskap. Datang dengan ritme yang aman dan hormati aturan setempat."],
+      ["Bukit Rhema", "Calon tujuan terpisah di Menoreh. Periksa alamat, rute, akses dan tiketnya sendiri; panduan ini belum memverifikasi jalur penghubung atau izin masuk saat ini."],
+      ["Bukit Barede", "Calon titik pandang untuk ditelusuri lebih lanjut. Konfirmasikan lokasi, status buka, rute dan tiket secara terpisah sebelum menambahkannya ke perjalanan."],
     ],
     mapText: "Peta digunakan untuk orientasi lokasi. Ikuti arahan jalan setempat dan perbarui rute Anda sebelum berangkat.",
     faqTitle: "Pertanyaan yang biasanya muncul sebelum fajar", faqs: [
@@ -109,8 +109,8 @@ const content = {
     planTitle: "A simple morning sequence", plan: "Confirm the entrance and access time, check the weather, arrange return transport, then walk according to conditions. A Borobudur Temple visit has separate rules and tickets.",
     nearby: [
       ["Borobudur Temple", "A cultural landmark visible in the distance in clear conditions. Check visit rules and tickets separately; this viewpoint experience is not entry to the temple complex."],
-      ["Bukit Rhema", "A next stop in the Menoreh Hills. Connecting paths may be steep or slippery; match the route to your fitness and the weather."],
-      ["Bukit Barede", "Another nearby viewpoint for extending a landscape-focused visit. Keep a safe pace and respect local rules."],
+      ["Bukit Rhema", "A separate destination to consider in Menoreh. Check its address, route, access and tickets independently; this guide has not verified a connecting path or current admission."],
+      ["Bukit Barede", "A candidate viewpoint to investigate separately. Confirm its location, opening status, route and tickets before adding it to your trip."],
     ],
     mapText: "This map is for location orientation. Follow local road guidance and refresh your route before leaving.",
     faqTitle: "Questions that tend to come up before dawn", faqs: [
