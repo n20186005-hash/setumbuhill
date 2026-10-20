@@ -1,19 +1,17 @@
-# Punthuk Setumbu Field Guide
+# Punthuk Setumbu visitor guide
 
-这是一个可本地保存的 React + Vite + TypeScript 静态网站源码包。它保留了印尼语与英语切换、FAQ、JSON-LD、Cookie 同意设置、独立法律页面、Google 地图嵌入及所有站点图片资源。
+Independent Indonesian and English visitor information. React/Vite produces eight directly readable static pages plus a genuine noindex 404. Each language has its own guide and privacy, terms and cookie pages with canonical URLs, matching language alternates and an eight-URL sitemap.
 
-## 本地运行
-
-在项目根目录执行：
-
-```bash
+```sh
 corepack pnpm install --frozen-lockfile
 pnpm check
-pnpm dev
+pnpm build
 ```
 
-若需要生产构建，请执行 `pnpm build`。站点图片全部位于 `client/public/images/`，页面代码已改为使用本地 `/images/...` 地址，不依赖原网站的图片存储地址。
+The build prerenders into `dist/public`; `dist/index.js` is an optional local Express server. Cloudflare uses `server/worker.ts` with the ASSETS binding, worker-first routing and `404-page` handling. HTTP and www entrances redirect to HTTPS apex while retaining path and query. Unknown URLs remain 404 with an X-Robots-Tag noindex header.
 
-## 说明
+Google Analytics loads only after explicit consent saved in local storage. Revocation reloads the page; browser settings can clear existing third-party cookies. Language follows the page URL. Maps and Google Fonts load as disclosed third-party resources. There are no accounts, bookings, contact forms or email submission channels. Obsolete debug collectors, storage proxies and unused login/map integration code have been removed.
 
-Google 地图 iframe 与 Google Fonts 仍是浏览器端第三方服务；它们不属于可复制的图片文件。真实景点摄影的权利归摄影师或权利人所有，使用前请遵循原始来源的许可和署名要求。图片的来源说明见 [ASSET_MANIFEST.md](./ASSET_MANIFEST.md)。
+See [public sources](PUBLIC_SOURCES.md) for dated visitor facts and limitations and [asset provenance](ASSET_MANIFEST.md) for inherited image credits and unresolved permissions. Large original decorative PNGs are retained under `assets/originals`, while smaller WebP derivatives are served.
+
+Build output is ignored by default; include the complete generated output explicitly if committing a deployment snapshot. Local checks do not confirm a production deployment.
