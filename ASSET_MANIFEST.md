@@ -1,25 +1,15 @@
-# 图片与资源清单
+# Asset provenance and limits
 
-本资源包已将网站页面当前引用的全部图片复制到 `client/public/images/`，并保留生成图形的原始版本以便后续编辑或导出。
+The following files were inherited from the base repository. Their existence and filenames do not establish photographic authenticity or reuse permission. No new licence or authorship is asserted.
 
-| 文件 | 类型 | 页面用途 | 来源/说明 |
-| --- | --- | --- | --- |
-| `punthuk-setumbu-logo.png` | PNG | 头部与页脚品牌符号 | 为网站创建的图形标识；已另附原始版本 |
-| `punthuk-setumbu-logo_original.png` | PNG | 原始存档 | 品牌符号原始导出 |
-| `punthuk-setumbu-contours.png` | PNG | 首屏与法律页地形线 | 为网站创建的装饰图形；已另附原始版本 |
-| `punthuk-setumbu-contours_original.png` | PNG | 原始存档 | 地形线原始导出 |
-| `punthuk-setumbu-waypoint.png` | PNG | 实用信息板块装饰 | 为网站创建的观景台图形；已另附原始版本 |
-| `punthuk-setumbu-waypoint_original.png` | PNG | 原始存档 | 观景台图形原始导出 |
-| `punthuk-setumbu-sunrise-arc.png` | PNG | 页脚日出地景装饰 | 为网站创建的地景图形；已另附原始版本 |
-| `punthuk-setumbu-sunrise-arc_original.png` | PNG | 原始存档 | 地景图形原始导出 |
-| `punthuk-setumbu-mountains.jpg` | JPG | 首页首屏实景主视觉 | 真实景点摄影；页面中链接至来源页 |
-| `punthuk-setumbu-mist.jpg` | JPG | 景点概览板块实景配图 | 真实景点摄影；页面中链接至来源页 |
-| `punthuk-setumbu-sunrise.jpg` | JPG | 备用真实日出摄影 | 已一并归档，供后续页面扩展使用 |
+| Asset | Inherited attribution / treatment |
+| --- | --- |
+| `client/public/images/punthuk-setumbu-mountains.jpg` | Existing source: [Chris & Wren’s World](https://chrisandwrensworld.com/punthuk-setumbu-sunrise/). The linked page names Chris + Wren as its creators. Existing attribution is retained visibly beside the hero. Exact-file provenance and permission remain unverified; labelled a reference image, not a live view. |
+| `client/public/images/punthuk-setumbu-mist.jpg` | Same inherited source and limitations; visible credit retained beside the image. |
+| `client/public/images/punthuk-setumbu-sunrise.jpg` | Unused inherited reference asset; former source [Arowisata](https://www.arowisata.com/sunrise-at-punthuk-setumbu-tour/). The source page could not be retrieved during this check. Photographer and reuse permission unverified; not used in visitor pages. |
+| `client/public/images/punthuk-setumbu-{logo,contours,waypoint,sunrise-arc}.webp` | Compressed/resized derivatives of existing site graphics, preserving transparency and composition. The old manifest called these site-created graphics; no creator identity or generative origin has been independently established. Decorative, not evidence of on-site structures. |
+| `assets/originals/*.png` | All eight inherited PNG working/original files retained outside the public asset directory. Not copied into the deployment. |
 
-## 网站外部服务
+Checked 19 October 2026. No CC or public-domain licence is claimed. Rights remain with their respective holders; attribution does not itself establish a reuse licence. No new external photographs have been downloaded into the public tree.
 
-以下内容为浏览器动态加载的第三方服务，不能作为图片文件一同复制：Google Fonts、Google Maps iframe，以及用户同意后才会加载的 Google Analytics。它们在源代码中保持原有引用方式。
-
-## 摄影权利提示
-
-实景摄影文件被保留为项目素材副本，但不因打包而转移图片著作权或使用许可。若网站将公开发布，建议根据原始摄影来源的许可条款保留署名或替换为已取得授权的高分辨率照片。
+Google Maps iframe, Google Fonts and explicitly opted-in Google Analytics are external browser services, not bundled photography. See the privacy and cookie pages.
