@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import { site, siteUrl, languagePath, type Language } from "../site";
+import { groupTopics, groupLabel, type TopicGroup } from "../lib/topics";
 
 
 
@@ -20,7 +21,7 @@ const photoSources = {
 
 const content = {
   id: {
-    nav: ["Gambaran", "Persiapan", "Rute", "Peta", "Tanya jawab"],
+    nav: ["Gambaran", "Persiapan", "Rute", "Peta", "Tanya jawab", "Topik"],
     eyebrow: "Panduan pengunjung independen · Kabupaten Magelang",
     hero: "Punthuk Setumbu: <em>sunrise</em> di Magelang.",
     intro: "Punthuk Setumbu adalah bukit pandang di Pegunungan Menoreh untuk menyaksikan pagi menyapu Candi Borobudur, Dataran Kedu, serta siluet Merapi–Merbabu—bila cuaca mengizinkan.",
@@ -74,7 +75,7 @@ const content = {
     rights: "Hak foto tetap pada fotografer/pemegang hak masing-masing.", copyright: "© 2026 Panduan Punthuk Setumbu.", legal: ["Kebijakan privasi", "Ketentuan penggunaan", "Pengaturan cookie"],
   },
   en: {
-    nav: ["Overview", "Essentials", "Route", "Map", "FAQ"],
+    nav: ["Overview", "Essentials", "Route", "Map", "FAQ", "Topics"],
     eyebrow: "Independent visitor guide · Magelang Regency",
     hero: "Punthuk Setumbu: a <em>sunrise</em> viewpoint.",
     intro: "Punthuk Setumbu is a Menoreh Hills viewpoint for watching morning settle over Borobudur, the Kedu Plain, and the Merapi–Merbabu silhouettes—when weather allows.",
@@ -135,6 +136,8 @@ const sourceUrls = [
   "https://maps.app.goo.gl/NzMFjeMifXDjJ9Xv8",
 ];
 
+const topicGroups: TopicGroup[] = ["sunrise", "prepare", "transport", "food", "nearby", "itinerary"];
+
 function IconForCard({ index }: { index: number }) {
   const icons = [<CloudSun key="a" size={18} />, <Clock3 key="b" size={18} />, <Ticket key="c" size={18} />, <Mountain key="d" size={18} />];
   return icons[index];
@@ -185,7 +188,7 @@ export default function Home({language="id"}:{language?:Language}) {
             <span>PUNTHUK<br />SETUMBU</span>
           </a>
           <nav className="nav" aria-label={language === "id" ? "Navigasi utama" : "Main navigation"}>
-            <a href="#overview">{t.nav[0]}</a><a href="#essentials">{t.nav[1]}</a><a href="#route">{t.nav[2]}</a><a href="#map">{t.nav[3]}</a><a href="#faq">{t.nav[4]}</a>
+            <a href="#overview">{t.nav[0]}</a><a href="#essentials">{t.nav[1]}</a><a href="#route">{t.nav[2]}</a><a href="#map">{t.nav[3]}</a><a href="#faq">{t.nav[4]}</a><a href="#topics">{t.nav[5]}</a>
           </nav>
           <div className="language-switch" aria-label={language === "id" ? "Pilih bahasa" : "Choose language"}>
             <a href="/" hrefLang="id" className={language === "id" ? "is-active" : ""}>ID</a>
@@ -270,6 +273,26 @@ export default function Home({language="id"}:{language?:Language}) {
 
       <section id="faq" className="faq-section">
         <div className="faq-grid"><div><div className="section-kicker"><Compass size={15} /> FAQ</div><h2 className="section-title">{t.faqTitle}</h2></div><div className="faq-list">{t.faqs.map(([question, answer]) => <details className="faq-item" key={question}><summary>{question}<ChevronDown size={18}/></summary><p>{answer}</p></details>)}</div></div>
+      </section>
+
+      <section id="topics" className="topic-related">
+        <div className="page-container">
+          <div className="section-kicker"><Compass size={15} /> {language === "id" ? "Panduan topik" : "Topic guides"}</div>
+          <h2 className="section-title">{language === "id" ? "Rencanakan setiap bagian kunjungan" : "Plan every part of the visit"}</h2>
+          {topicGroups.map((group) => (
+            <div className="topic-group" key={group}>
+              <h3 className="topic-group-title">{groupLabel(language, group)}</h3>
+              <div className="topic-related-grid">
+                {groupTopics(language, group).map((tk) => (
+                  <a className="topic-related-card" key={tk.slug} href={languagePath(language, tk.slug)}>
+                    <span>{groupLabel(language, tk.group)}</span>
+                    <h3>{tk[language].h1}</h3>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="source-section"><div className="page-container source-grid"><div><div className="eyebrow">{t.sourceLabel}</div><h2>{t.sourceTitle}</h2></div><div><p>{t.sourceText}</p><ul className="source-list">{t.sources.map((source, index) => <li key={source}><span>0{index + 1}</span><a href={sourceUrls[index]} target="_blank" rel="noreferrer">{source} <ExternalLink size={13} aria-label={language === "id" ? "Buka sumber" : "Open source"} /></a></li>)}</ul></div></div></section>
